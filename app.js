@@ -144,6 +144,18 @@ function createTheEngineer() {
         type: "input",
         name: "emailEngineer",
         message: "What is your Engineer's email address?",
+        //   Email Validate
+        validate: function (email) {
+          valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
+          if (valid) {
+            console.log("      valid email");
+            return true;
+          } else {
+            console.log(".  Please enter a valid email address.");
+            return false;
+          }
+        },
       },
       {
         type: "input",
@@ -221,7 +233,18 @@ function createTheIntern() {
       {
         type: "input",
         name: "emailIntern",
-        message: "What is your Intern's email address?",
+        message: "What is your Intern's email address?", //   Email Validate
+        validate: function (email) {
+          valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
+          if (valid) {
+            console.log("      valid email");
+            return true;
+          } else {
+            console.log(".  Please enter a valid email address.");
+            return false;
+          }
+        },
       },
       {
         type: "input",
