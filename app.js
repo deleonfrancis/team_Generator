@@ -20,15 +20,16 @@ const writeTeamHTML = util.promisify(fs.writeFile);
 const membersOfYourTeam = [];
 
 function start() {
+  console.log("Let's build your engineering team!");
   // function to create the manager and ask questions
   function createTheManager() {
-    console.log("Build your team!");
+    console.log("Manager for your team.");
     inquirer
       .prompt([
         {
           type: "input",
           name: "nameManager",
-          message: "What is the name for your Manager?",
+          message: "What is the name of your manager?",
           //   Check for an input
           validate: function (name) {
             if (!name) {
@@ -42,12 +43,12 @@ function start() {
         {
           type: "input",
           name: "idManager",
-          message: "What is your Manager's I.D.?",
+          message: "What is your manager's I.D.?",
         },
         {
           type: "input",
           name: "emailManager",
-          message: "What is your Manager's email address?",
+          message: "What is your manager's email address?",
 
           //   Email Validate
           validate: function (email) {
@@ -57,7 +58,7 @@ function start() {
               console.log("      valid email");
               return true;
             } else {
-              console.log(".  Please enter a valid email address.");
+              console.log("  ...Please enter a valid email address.");
               return false;
             }
           },
@@ -65,7 +66,7 @@ function start() {
         {
           type: "input",
           name: "officeManager",
-          message: "What your Manager's office number?",
+          message: "What's your manager's office number?",
         },
         {
           type: "list",
@@ -105,9 +106,7 @@ function start() {
           answers.emailManager,
           answers.officeManager
         );
-        console.log(manager);
         membersOfYourTeam.push(manager); // puts the object into the array
-        // console.log(membersOfYourTeam);
         writeTeamHTML(outputPath, render(membersOfYourTeam)); // creates team.html in output folder and prints code to the page.
       })
       .catch((error) => console.log(error));
@@ -118,13 +117,13 @@ function start() {
 start();
 
 function createTheEngineer() {
-  console.log("Let's add your Engineer!");
+  console.log("Let's add your Engineer.");
   inquirer
     .prompt([
       {
         type: "input",
         name: "nameEngineer",
-        message: "What is the name for your Engineer?",
+        message: "What is your engineer's name?",
         //   Check for an input
         validate: function (name) {
           if (!name) {
@@ -138,12 +137,12 @@ function createTheEngineer() {
       {
         type: "input",
         name: "idEngineer",
-        message: "What is your Engineer's I.D.?",
+        message: "What is your engineer's I.D.?",
       },
       {
         type: "input",
         name: "emailEngineer",
-        message: "What is your Engineer's email address?",
+        message: "What is your engineer's email address?",
         //   Email Validate
         validate: function (email) {
           valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
@@ -152,7 +151,7 @@ function createTheEngineer() {
             console.log("      valid email");
             return true;
           } else {
-            console.log(".  Please enter a valid email address.");
+            console.log("     ...Please enter a valid email address.");
             return false;
           }
         },
@@ -200,21 +199,19 @@ function createTheEngineer() {
         answers.emailEngineer,
         answers.gitHubEngineer
       );
-      console.log(engineer);
       membersOfYourTeam.push(engineer); // puts the object into the array
-      // console.log(membersOfYourTeam);
       writeTeamHTML(outputPath, render(membersOfYourTeam)); // creates team.html in output folder and prints code to the page.
     });
 }
 
 function createTheIntern() {
-  console.log("Let's add your Intern!");
+  console.log("Let's add your Intern.");
   inquirer
     .prompt([
       {
         type: "input",
         name: "nameIntern",
-        message: "What is the name for your Intern?",
+        message: "What is your intern's name?",
         //   Check for an input
         validate: function (name) {
           if (!name) {
@@ -228,12 +225,12 @@ function createTheIntern() {
       {
         type: "input",
         name: "idIntern",
-        message: "What is your Intern's I.D.?",
+        message: "What is your intern's I.D.?",
       },
       {
         type: "input",
         name: "emailIntern",
-        message: "What is your Intern's email address?", //   Email Validate
+        message: "What is your intern's email address?", //   Email Validate
         validate: function (email) {
           valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
@@ -241,7 +238,7 @@ function createTheIntern() {
             console.log("      valid email");
             return true;
           } else {
-            console.log(".  Please enter a valid email address.");
+            console.log("     ...Please enter a valid email address.");
             return false;
           }
         },
@@ -249,7 +246,7 @@ function createTheIntern() {
       {
         type: "input",
         name: "schoolIntern",
-        message: "What School for your Intern's?",
+        message: "What school for your intern's?",
       },
       {
         type: "list",
@@ -289,9 +286,8 @@ function createTheIntern() {
         answers.emailIntern,
         answers.schoolIntern
       );
-      console.log(intern);
+
       membersOfYourTeam.push(intern); // puts the object into the array
-      // console.log(membersOfYourTeam);
       writeTeamHTML(outputPath, render(membersOfYourTeam)); // creates team.html in output folder and prints code to the page.
     });
 }
