@@ -125,6 +125,15 @@ function createTheEngineer() {
         type: "input",
         name: "nameEngineer",
         message: "What is the name for your Engineer?",
+        //   Check for an input
+        validate: function (name) {
+          if (!name) {
+            console.log("     ...Please enter a name");
+            return false;
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
@@ -194,6 +203,15 @@ function createTheIntern() {
         type: "input",
         name: "nameIntern",
         message: "What is the name for your Intern?",
+        //   Check for an input
+        validate: function (name) {
+          if (!name) {
+            console.log("     ...Please enter a name");
+            return false;
+          } else {
+            return true;
+          }
+        },
       },
       {
         type: "input",
@@ -242,7 +260,7 @@ function createTheIntern() {
           writeTeamHTML(outputPath, render(membersOfYourTeam));
           break;
       }
-      const intern = new Engineer(
+      const intern = new Intern(
         answers.nameIntern,
         answers.idIntern,
         answers.emailIntern,
