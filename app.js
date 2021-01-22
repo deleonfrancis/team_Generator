@@ -57,7 +57,7 @@ function start() {
         console.log(membersOfYourTeam);
         render(membersOfYourTeam); // uses render() to write the html code
         console.log(render(membersOfYourTeam));
-        writeTeamHTML("team.html", render(membersOfYourTeam)); // creates team.html and prints code to the page. 
+        writeTeamHTML("./output/team.html", render(membersOfYourTeam)); // creates team.html in output folder and prints code to the page. 
       })
       .catch((error) => console.log(error));
   }
