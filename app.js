@@ -81,6 +81,24 @@ function start() {
         },
       ])
       .then((answers) => {
+        // check for more employees answer and prompt to build that employee.
+        switch (answers.moreEmployees) {
+          case "Manager":
+            createTheManager();
+            break;
+
+          case "Engineer":
+            createTheEngineer();
+            break;
+
+          case "Intern":
+            createTheIntern();
+            break;
+
+          default:
+            writeTeamHTML(outputPath, render(membersOfYourTeam));
+            break;
+        }
         const manager = new Manager(
           answers.nameManager,
           answers.idManager,
@@ -89,10 +107,7 @@ function start() {
         );
         console.log(manager);
         membersOfYourTeam.push(manager); // puts the object into the array
-        console.log(membersOfYourTeam);
-
-        render(membersOfYourTeam); // uses render() to write the html code
-        console.log(render(membersOfYourTeam));
+        // console.log(membersOfYourTeam);
         writeTeamHTML(outputPath, render(membersOfYourTeam)); // creates team.html in output folder and prints code to the page.
       })
       .catch((error) => console.log(error));
@@ -102,43 +117,143 @@ function start() {
 
 start();
 
-//   function createTheEngineer() {
-//     console.log("Let's add your Engineer!");
-//     inquirer
-//       .prompt([
-//         {
-//           type: "input",
-//           name: "nameEngineer",
-//           message: "What is the name for your Engineer?",
-//         },
-//         {
-//           type: "input",
-//           name: "idEngineer",
-//           message: "What is your Engineer's I.D.?",
-//         },
-//         {
-//           type: "input",
-//           name: "emailEngineer",
-//           message: "What is your Engineer's email address?",
-//         },
-//         {
-//           type: "input",
-//           name: "gitHubEngineer",
-//           message: "What your Engineer's gitHub username?",
-//         },
-//       ])
-//       .then((answers) => {
-//         const engineer = new Engineer (
-//           answers.nameEngineer,
-//           answers.idEngineer,
-//           answers.emailEngineer,
-//           answers.gitHubEngineer
-//         );
-//         console.log(engineer);
-//       });
-//   }
-//   createTheEngineer();
+function createTheEngineer() {
+  console.log("Let's add your Engineer!");
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "nameEngineer",
+        message: "What is the name for your Engineer?",
+      },
+      {
+        type: "input",
+        name: "idEngineer",
+        message: "What is your Engineer's I.D.?",
+      },
+      {
+        type: "input",
+        name: "emailEngineer",
+        message: "What is your Engineer's email address?",
+      },
+      {
+        type: "input",
+        name: "gitHubEngineer",
+        message: "What your Engineer's gitHub username?",
+      },
+      {
+        type: "list",
+        name: "moreEmployees",
+        message: "Would you like to add another team member",
+        choices: [
+          "Manager",
+          "Engineer",
+          "Intern",
+          "I don't want to add another employee.",
+        ],
+        default: "I don't want to add another employee.",
+      },
+    ])
+    .then((answers) => {
+      // check for more employees answer and prompt to build that employee.
+      switch (answers.moreEmployees) {
+        case "Manager":
+          createTheManager();
+          break;
 
+        case "Engineer":
+          createTheEngineer();
+          break;
+
+        case "Intern":
+          createTheIntern();
+          break;
+
+        default:
+          writeTeamHTML(outputPath, render(membersOfYourTeam));
+          break;
+      }
+      const engineer = new Engineer(
+        answers.nameEngineer,
+        answers.idEngineer,
+        answers.emailEngineer,
+        answers.gitHubEngineer
+      );
+      console.log(engineer);
+      membersOfYourTeam.push(engineer); // puts the object into the array
+      // console.log(membersOfYourTeam);
+      writeTeamHTML(outputPath, render(membersOfYourTeam)); // creates team.html in output folder and prints code to the page.
+    });
+}
+
+function createTheIntern() {
+  console.log("Let's add your Intern!");
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "nameIntern",
+        message: "What is the name for your Intern?",
+      },
+      {
+        type: "input",
+        name: "idIntern",
+        message: "What is your Intern's I.D.?",
+      },
+      {
+        type: "input",
+        name: "emailIntern",
+        message: "What is your Intern's email address?",
+      },
+      {
+        type: "input",
+        name: "schoolIntern",
+        message: "What School for your Intern's?",
+      },
+      {
+        type: "list",
+        name: "moreEmployees",
+        message: "Would you like to add another team member",
+        choices: [
+          "Manager",
+          "Engineer",
+          "Intern",
+          "I don't want to add another employee.",
+        ],
+        default: "I don't want to add another employee.",
+      },
+    ])
+    .then((answers) => {
+      // check for more employees answer and prompt to build that employee.
+      switch (answers.moreEmployees) {
+        case "Manager":
+          createTheManager();
+          break;
+
+        case "Engineer":
+          createTheEngineer();
+          break;
+
+        case "Intern":
+          createTheIntern();
+          break;
+
+        default:
+          writeTeamHTML(outputPath, render(membersOfYourTeam));
+          break;
+      }
+      const intern = new Engineer(
+        answers.nameIntern,
+        answers.idIntern,
+        answers.emailIntern,
+        answers.schoolIntern
+      );
+      console.log(intern);
+      membersOfYourTeam.push(intern); // puts the object into the array
+      // console.log(membersOfYourTeam);
+      writeTeamHTML(outputPath, render(membersOfYourTeam)); // creates team.html in output folder and prints code to the page.
+    });
+}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
