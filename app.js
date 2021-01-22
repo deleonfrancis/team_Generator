@@ -5,13 +5,21 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const util = require("util");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// Variable that writes the team.html file
+const writeTeamHTML = util.promisify(fs.writeFile);
+
+// arrays that holds team members.
+const membersOfYourTeam = [];
+
 function start() {
+  // function to create the manager and ask questions
   function createTheManager() {
     console.log("Build your team!");
     inquirer
@@ -19,33 +27,39 @@ function start() {
         {
           type: "input",
           name: "nameManager",
-          message: "What is the name for your manager?",
+          message: "What is the name for your Manager?",
         },
         {
           type: "input",
           name: "idManager",
-          message: "What is your manager's I.D.?",
+          message: "What is your Manager's I.D.?",
         },
         {
           type: "input",
           name: "emailManager",
-          message: "What is your manager's email address?",
+          message: "What is your Manager's email address?",
         },
         {
           type: "input",
           name: "officeManager",
-          message: "What your manager's office number?",
+          message: "What your Manager's office number?",
         },
       ])
       .then((answers) => {
-        const manager = new Manager (
+        const manager = new Manager(
           answers.nameManager,
           answers.idManager,
           answers.emailManager,
           answers.officeManager
         );
         console.log(manager);
-      });
+        membersOfYourTeam.push(manager); // puts the object into the array
+        console.log(membersOfYourTeam);
+        render(membersOfYourTeam); // uses render() to write the html code
+        console.log(render(membersOfYourTeam));
+        writeTeamHTML("team.html", render(membersOfYourTeam)); // creates team.html and prints code to the page. 
+      })
+      .catch((error) => console.log(error));
   }
   createTheManager();
 }
@@ -57,6 +71,7 @@ start();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
