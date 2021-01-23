@@ -1,7 +1,7 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 # Team Generator
 
-> The web app creates an html file with team members based on user input.
+> This web app creates an html file with team members based on user input.
 
 ![](assets/team_generator.png)
 
@@ -35,9 +35,10 @@ HTML, Bootstrap, JavaScript, Node.js, NPMs.
 ---
 
 ## How To Use
-User must open team_Generator folder in the command line. THen type 'node app.js'command. Answer the proceededing questions. When done, open the output folder in team_Generator. Open the team.html file in user browser and view the team.
+User must open 'team_Generator' folder in the command line. Then type the 'node app.js' command. Answer the proceeding questions. When done, close the terminal and open the 'output' folder in 'team_Generator.' Open the 
+team.html file in user browser and view your team!
    
-   [Back To The Top](#read-me-template)
+[Back To The Top](#read-me-template)
    
 ---
 
