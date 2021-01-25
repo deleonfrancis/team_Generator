@@ -44,8 +44,9 @@ team.html file in user browser and view your team!
 
 ## Links
 
-Link to site:
-none
+Link to video of how to operate:
+https://github.com/deleonfrancis/team_Generator/blob/main/assets/team_Gen_Video.mov
+click download to view the video.
 
 Link to GitHub repository:
 https://github.com/deleonfrancis/team_Generator
