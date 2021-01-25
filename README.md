@@ -1,4 +1,5 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+
 # Team Generator
 
 > This web app creates an html file with team members based on user input.
@@ -17,17 +18,21 @@
 ---
 
 ## Description
-In this web application, the user runs the command line, types in 'node app.js' and is asked a series of questions. These answers are then stored and printed to an html file called 'team.html'  in the output folder.From there the user can view the generated file in the browser.  
+
+In this web application, the user runs the command line, types in 'node app.js' and is asked a series of questions. These answers are then stored and printed to an html file called 'team.html' in the output folder.From there the user can view the generated file in the browser.
 
 ---
 
 ## Installation
+
 This app requires Node.js, npm inquirer, jest, npm util.
 
 ---
+
 [Back To The Top](#read-me-template)
 
 ## Technologies
+
 HTML, Bootstrap, JavaScript, Node.js, NPMs.
 
 [Back To The Top](#read-me-template)
@@ -35,11 +40,12 @@ HTML, Bootstrap, JavaScript, Node.js, NPMs.
 ---
 
 ## How To Use
-User must open 'team_Generator' folder in the command line. Then type the 'node app.js' command. Answer the proceeding questions. When done, close the terminal and open the 'output' folder in 'team_Generator.' Open the 
+
+User must open 'team_Generator' folder in the command line. Then type the 'node app.js' command. Answer the proceeding questions. When done, close the terminal and open the 'output' folder in 'team_Generator.' Open the
 team.html file in user browser and view your team!
-   
+
 [Back To The Top](#read-me-template)
-   
+
 ---
 
 ## Links
@@ -47,6 +53,8 @@ team.html file in user browser and view your team!
 Link to video of how to operate:
 https://github.com/deleonfrancis/team_Generator/blob/main/assets/team_Gen_Video.mov
 click download to view the video.
+or
+https://drive.google.com/drive/folders/1sxvIO7BdyAm9qOC0WZekGpYb_-hsQZ0O
 
 Link to GitHub repository:
 https://github.com/deleonfrancis/team_Generator
